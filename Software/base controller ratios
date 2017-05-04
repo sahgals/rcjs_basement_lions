@@ -1,0 +1,84 @@
+#!/usr/bin/env python
+#import rospy
+#from std_msgs.msg import String
+#rospy.Subscriber('arduinomotor', String, callback)
+#pub = rospy.Publisher('arduinomotor', String, queue_size=10)
+#rospy.init_node('basecontrol', anonymous=true)
+#rate = rospy.rate(10)
+#rospy.spin()
+
+import math
+
+#determining variables
+angle = int(input('angle'))
+
+reverseangle = [None]
+
+if angle > 180:
+    reverseangle = angle - 180
+elif angle < 180:
+        reverseangle = angle + 180
+elif angle == 180:
+    reverseangle = 0
+else:
+    print('error with reverse angle')
+
+set1 = 90
+set2 = 90
+set3 = 91
+set4 = 91
+
+
+setl1 = 9.8299
+setl2 = 9.8299
+setl3 = 9.83
+setl4 = 9.83
+
+anglea = 45
+angleb = 45
+anglec = 32
+angled = 32
+
+lengtha = [None]
+lengthb = [None]
+lengthc = [None]
+lengthd = [None]
+
+anglee = 180 - (anglea + set1)
+anglef = 180 - (angleb + set2)
+angleg = 180 - (anglec + set3)
+angleh = 180 - (angled + set4)
+
+zone= [None]
+
+#setting zone
+
+if angle >= 315 or angle <= 45:
+    zone = 1
+elif angle >= 54 or angle <= angled:
+    zone = 2
+
+#angle distance
+if zone == 1:
+    anglea = set1 + angle
+    angleb = set2 - angle
+    angled = set3 + reverseangle
+    anglec = set4 - reverseangle
+elif zone == 2:
+    anglea = set1 - angle
+    angleb = set2 + angle
+    angled = set3 - reverseangle
+    anglec = set4 + reverseangle
+
+#actual caluclations
+lengtha = setl1 * math.tan(anglea)
+
+lengthb = setl2 * math.tan(angleb)
+
+sindiv1 = math.sin(angleg) / setl3
+lengthc = math.sin(anglec) / sindiv1
+
+sindiv2 = math.sin(angleh) / setl4
+lengthd = math.sin(angled) / sindiv2
+
+print(lengtha, lengthb, lengthc, lengthd)
