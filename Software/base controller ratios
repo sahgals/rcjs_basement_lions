@@ -59,16 +59,16 @@ elif angle >= 54 or angle <= angled:
     zone = 2
 print(zone)
 #angle distance
-# i noticed that if I switched operations signs for the strange angles it worked. nvm some of the angles weree back
+# i noticed that if I switched operations signs for the strange angles it worked.
 if zone == 1:
     anglea = set1 + angle
     angleb = set2 - angle
-    angled = set3 - reverseangle
+    angled = set3 + reverseangle
     anglec = set4 + reverseangle
 elif zone == 2:
     anglea = set1 - angle
     angleb = set2 + angle
-    angled = set3 + reverseangle
+    angled = set3 - reverseangle
     anglec = set4 - reverseangle
 
 #actual caluclations
