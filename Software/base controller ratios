@@ -57,18 +57,23 @@ if angle >= 315 or angle <= 45:
     zone = 1
 elif angle >= 54 or angle <= angled:
     zone = 2
-
+print(zone)
 #angle distance
+# i noticed that if I switched operations signs for the strange angles it worked.
 if zone == 1:
     anglea = set1 + angle
+    print(anglea)
     angleb = set2 - angle
+    print(angleb)
     angled = set3 + reverseangle
-    anglec = set4 - reverseangle
+    print(angled)
+    anglec = set4 + reverseangle
+    print(anglec)
 elif zone == 2:
     anglea = set1 - angle
     angleb = set2 + angle
     angled = set3 - reverseangle
-    anglec = set4 + reverseangle
+    anglec = set4 - reverseangle
 
 #actual caluclations
 lengtha = setl1 * math.tan(anglea)
