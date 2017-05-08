@@ -62,13 +62,9 @@ print(zone)
 # i noticed that if I switched operations signs for the strange angles it worked.
 if zone == 1:
     anglea = set1 + angle
-    print(anglea)
     angleb = set2 - angle
-    print(angleb)
     angled = set3 + reverseangle
-    print(angled)
     anglec = set4 + reverseangle
-    print(anglec)
 elif zone == 2:
     anglea = set1 - angle
     angleb = set2 + angle
@@ -86,4 +82,13 @@ lengthc = math.sin(anglec) / sindiv1
 sindiv2 = math.sin(angleh) / setl4
 lengthd = math.sin(angled) / sindiv2
 
-print(lengtha, lengthb, lengthc, lengthd)
+finallengths = [lengtha, lengthb, lengthc, lengthd]
+
+#percetage out of a hundred
+basehundred = max(finallengths)
+finallengths.remove(basehundred)
+ratio1 = 100
+ratio2 = (finallengths[0]*100)/basehundred
+ratio3 = (finallengths[1]*100)/basehundred
+ratio4 = (finallengths[2]*100)/basehundred
+print(ratio1, ratio2, ratio3, ratio4)
