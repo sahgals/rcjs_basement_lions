@@ -8,9 +8,13 @@
 #rospy.spin()
 
 import math
+import cmath
 
 #determining variables
-angle = int(input('angle'))
+xv = int(input('xv'))
+yv = int(input('yv'))
+angle = math.atan2(yv, xv)
+rate = int(input('raidans per sec'))
 
 reverseangle = [None]
 
@@ -91,4 +95,9 @@ ratio1 = 100
 ratio2 = (finallengths[0]*100)/basehundred
 ratio3 = (finallengths[1]*100)/basehundred
 ratio4 = (finallengths[2]*100)/basehundred
-print(ratio1, ratio2, ratio3, ratio4)
+percentspeed = rate * 0.18
+fratio1 = abs((ratio1*percentspeed)/100)
+fratio2 = abs((ratio2*percentspeed)/100)
+fratio3 = abs((ratio3*percentspeed)/100)
+fratio4 = abs((ratio4*percentspeed)/100)
+print(fratio1, fratio2, fratio3, fratio4)
