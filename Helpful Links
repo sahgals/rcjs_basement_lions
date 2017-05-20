@@ -3,9 +3,11 @@ Helpful links
 
 https://www.chiefdelphi.com/forums/showthread.php?t=102759 
 
+Navigation:
 http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
+http://wiki.ros.org/navigation/Tutorials/Navigation%20Tuning%20Guide
 
-coordinates of point on image plane.
+coordinates of point on image plane:
 http://answers.opencv.org/question/94845/python-opencv-extracting-xy-coordinates-of-point-features-on-an-image/
 ^might be slightly helpful
 
