@@ -1,0 +1,45 @@
+#include <ros.h>
+#include <SPI.h>
+#include <Pixy.h>
+#include <tf/transform_broadcaster.h>
+#include <nav_msgs/Odometry.h>
+#include <std_msgs/String.h>
+#include <std_msgs/Int16.h>
+#include <nav_msgs/Odometry.h>
+#include tf/transfrom_broadcaster.h>
+
+Pixy pixy;
+
+ros::NodeHandle nh;
+
+std_msgs::Int16 ballx;
+ros::Publisher ballxpub("ballxpub", &ballx)
+
+std_msgs::Int16 ballwidth;
+ros::Publisher ballwidthpub("ballwidthpub", &ballballwidth)
+
+nav_msgs::Odometry omdometrymsg
+
+
+/*setup subsand pubs here*/
+
+void setup()
+{
+  nh.initNode();
+  nh.advertise(ballxpub);
+  nh.advertise(ballwidthpub);
+
+  pixy.init();
+
+}
+
+void loop()
+{
+  blocks = pixy.getBlocks();
+  ballx.data = pixy.blocks[0].x;
+  ballwidth.data = pixy.blocks[0].width;
+
+
+
+
+}
